@@ -1,20 +1,17 @@
 name 'resource_handler'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
+maintainer 'Kevin Reedy'
+maintainer_email 'kreedy@chef.io'
+license 'Apache-2.0'
 description 'Installs/Configures resource_handler'
 long_description 'Installs/Configures resource_handler'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+issues_url 'https://github.com/kevinreedy/resource_handler/issues'
+source_url 'https://github.com/kevinreedy/resource_handler'
 
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/resource_handler/issues'
+# Copying the supported OSes from chef_handler
+%w(ubuntu debian redhat centos fedora).each do |os|
+  supports os
+end
 
-# The `source_url` points to the development repository for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/resource_handler'
+depends 'chef_handler'
