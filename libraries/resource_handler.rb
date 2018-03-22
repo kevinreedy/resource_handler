@@ -23,8 +23,10 @@ module ResourceHandler
         # require 'pry'
         # binding.pry
 
-        # Append timestamp and resource type/name to log
-        output_file << "#{DateTime.now}\t#{node['fqdn']}\t#{r}\n"
+        # Append timestamp, node name,resource type/name, and resource source location to log
+        resource_line_number = r.source_line.gsub(/^.+\.rb\:(\d+)\:.+$/, '\1')
+        resource_location = "#{r.cookbook_name}::#{r.recipe_name}:#{resource_line_number}"
+        output_file << "#{DateTime.now}\t#{node['fqdn']}\t#{r}\t#{resource_location}\n"
       end
 
       output_file.close
