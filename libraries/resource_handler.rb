@@ -24,7 +24,7 @@ module ResourceHandler
         # binding.pry
 
         # Append timestamp and resource type/name to log
-        output_file << "#{DateTime.now}\t#{r}\n"
+        output_file << "#{DateTime.now}\t#{node['fqdn']}\t#{r}\n"
       end
 
       output_file.close
