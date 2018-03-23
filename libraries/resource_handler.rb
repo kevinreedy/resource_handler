@@ -24,7 +24,8 @@ module ResourceHandler
         # binding.pry
 
         # Append timestamp and resource type/name to log
-        output_file << "#{DateTime.now}\t#{r}\n"
+        resource_recipe = "#{r.cookbook_name}::#{r.recipe_name}"
+        output_file << "#{DateTime.now}\t#{node['fqdn']}\t#{resource_recipe}\t#{r}\n"
       end
 
       output_file.close
